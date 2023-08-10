@@ -7,13 +7,13 @@ Although more direct tools for power analysis exist for *t*-tests, this applicat
 
 <hr>
 
-This app is available from my (rather slow) personal [Shiny server](https://shiny.jdl-svr.lat/PowerSimulate_ind_t_EN/). However, if that is too slow or my server is not working, you can always run it locally in your computer with R installed. 
+This app is available from my (rather slow) personal [Shiny server](https://shiny.jdl-svr.lat/PowerSimulate_corr_EN/). However, if that is too slow or my server is not working, you can always run it locally in your computer with R installed. 
 
 To do this, you can simply run the code below in R:
 
 ```R
 library(shiny)
-runGitHub("PowerSimulate_ind_t_EN", "JDLeongomez")
+runGitHub("PowerSimulate_corr_EN", "JDLeongomez")
 ```
 
-(**NOTA:** Para la versión en Español, entra a https://github.com/JDLeongomez/PowerSimulate_ind_t_ES)
+(**NOTA:** Para la versión en Español, entra a https://github.com/JDLeongomez/PowerSimulate_corr_ES)
