@@ -105,7 +105,7 @@ ui <- fluidPage(
                        min = -1,
                        max = 1,
                        value = 0.39,
-                       step = 0.001,
+                       step = 0.01,
                        width = 'auto'),
            tags$h3("If this was correlation in the population"),
            plotOutput("effectPlot") %>% 
@@ -136,15 +136,18 @@ ui <- fluidPage(
                                    "Negative correlation"
                        )),
            numericInput(inputId = "reps",
-                        label = HTML("Number of simulations<br>
-                                     <span style='font-weight:normal'>Larger numbers increase accuracy but take more time. 
-                                     By default it runs only 100 simulations, but once you have checked all 
-                                     parameters, I suggest running 1000+ simulations to increase accuracy.</span>"),
+                        label = HTML("Number of simulations:
+                                     <span style='font-weight:normal'>By default only 100 simulations are run, 
+                                     but once you have checked all the parameters, I suggest that you run 1000 
+                                     or more simulations to increase the accuracy (the more simulations you run, 
+                                     the longer it will take).</span>"),
                         min = 1,
-                        max = 10000000,
+                        max = 1000000,
                         value = 100,
                         step = 1,
-                        width = '300px')
+                        width = '300px'),
+           nextGenShinyApps::submitButton("runSim", text = "Run the simulation!", icon("refresh"), 
+                                          bg.type = "danger", style = "round")
     ),
     column(4,
            tags$h1("Statistical power"),
@@ -177,10 +180,13 @@ server <- function(input, output, session) {
       annotate("text", x = -Inf, y = Inf, 
                hjust = -0.2, vjust = 2, size = 6,
                label = paste0("r = ", input$corrxy)) +
+      stat_regline_equation(aes(label = paste(..eq.label.., ..rr.label.., sep = "~~")),
+                            label.x = -Inf, label.y = Inf,
+                            hjust = -0.1, vjust = 3) +
       labs(x = input$labelx, y = input$labely)
     ggMarginal(p, type = "density", fill = "#ff5555")
   })
-  
+
   # Create object with selected hypothesis alternative
   altern <<- reactive({
     dplyr::case_when(
@@ -216,7 +222,7 @@ server <- function(input, output, session) {
       labs(y = "Count", x = "p-value") +
       scale_x_continuous(breaks = pretty_breaks(n = 20)) +
       annotate("text", x = 0.5, y = Inf, size = 7, vjust = 2,
-               label = paste0("Power (1 - β) = ", round(sum(dat.sim()$Significance == "Significant") / input$reps, 3))) +
+               label = paste0("Power (1 - β) = ", round(sum(dat.sim()$Significance == "Significant") / input$reps, 2))) +
       annotate("text", x = 0.5, y = Inf, vjust = 5,
                label = paste0("Sample size = ", input$sample_size)) +
       annotate("text", x = 0.5, y = Inf, vjust = 6.5,
@@ -231,7 +237,7 @@ server <- function(input, output, session) {
     paste("<b style=color:#ff5555;>INTERPRETATION: </b>
           The power is nothing more than the proportion of significant results 
           (<em>p</em> < α). So, if the true correlation in the population was <font color=\'#ff5555\'><b><em>r</em> = ",
-          input$corrxy, "</b></font>, with a random sample of <font color=\'#ff5555\'><b>", input$sample_size, 
+          input$corrxy, "</b></font>, with a random sample of <font color=\'#ff5555\'><b><em>n</em> = ", input$sample_size, 
           "</b></font>, you would get a significant result in aproximately <font color=\'#ff5555\'><b>", 
           percent(round(sum(dat.sim()$Significance == "Significant") / input$reps, 2)),
           "</b></font> of the cases.")
