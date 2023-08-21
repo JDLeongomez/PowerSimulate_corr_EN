@@ -39,7 +39,7 @@ ui <- fluidPage(
   titlePanel(title = tags$link(rel = "icon",
                                type = "image",
                                href = "https://image.pngaaa.com/393/402393-middle.png"),
-             "PowerSimulate (correlation)"),
+             "PowerSimulate: Correlation"),
   HTML("<center><a href='https://shiny.jdl-svr.lat/PowerSimulate'><img src='powersimulate.svg'' width='600'></a></center>"),
   tags$h3(HTML("<center>Correlation</center>")),
   p(HTML("<center>Code available from
