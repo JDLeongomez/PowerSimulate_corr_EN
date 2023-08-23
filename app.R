@@ -45,7 +45,7 @@ ui <- fluidPage(
   p(HTML("<center>Code available from
       <a style=color:#ff5555;  href='https://github.com/JDLeongomez/PowerSimulate_corr_EN'>GitHub</a>
       - Created by
-      <a style=color:#ff5555;  href='https://jdleongomez.info/en/'>Juan David Leongómez</a>
+      <a style=color:#ff5555;  href='https://jdleongomez.info/en/'>Juan David Leongómez</a>, Universidad El Bosque
       · 2023 · <a style=color:#4075de;  href='https://shiny.jdl-svr.lat/PowerSimulate_corr_ES/'>
       Versión en español</a> 
       · <a style=color:#ff5555;  href='https://shiny.jdl-svr.lat/PowerSimulate_ind_t_EN'>PowerSimulate: Independent <em>t</em>-test.</a></center>")),
