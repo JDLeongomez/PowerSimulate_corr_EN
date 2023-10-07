@@ -48,7 +48,7 @@ ui <- fluidPage(
       <a style=color:#ff5555;  href='https://jdleongomez.info/en/'>Juan David Leongómez</a>, Universidad El Bosque
       · 2023 · <a style=color:#4075de;  href='https://shiny.jdl-svr.lat/PowerSimulate_corr_ES/'>
       Versión en español</a> 
-      · List of <a style=color:#ff5555;  href='https://shiny.jdl-svr.lat/PowerSimulate_corr_EN'>PowerSimulate</a> apps.</center>")),
+      · List of <a style=color:#ff5555;  href='https://shiny.jdl-svr.lat/PowerSimulate'>PowerSimulate</a> apps.</center>")),
   hr(),
   p(HTML("<center>Power analysis based on the simulation of a population, and the probability of
          obtaining a significant result with a sample of a given size.<br>Although more direct 
