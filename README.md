@@ -1,9 +1,9 @@
 # <img src="https://github.com/JDLeongomez/PowerSimulate_ind_t_EN/blob/master/www/powersimulate.svg" align="left" width=400 height=100 alt=""/>
 
-## Independent *t*-test
+## Correlation
 <br>
 Power analysis based on the simulation of a population, and the probability of obtaining a significant result with a sample of a given size.
-Although more direct tools for power analysis exist for *t*-tests, this application relies on simulations to illustrate the concept of statistical power.
+Although more direct tools for power analysis exist for correlations, this application relies on simulations to illustrate the concept of statistical power.
 
 <hr>
 
